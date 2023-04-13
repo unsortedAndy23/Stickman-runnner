@@ -65,6 +65,17 @@ function create() {
             stickman.flipY = false;
         }
     });
+    //touch support
+    this.input.on('pointerdown', function(pointer) {
+        if(gameState !== 'start') return;
+        if(stickman.y === 230){
+        stickman.y = 336;
+        stickman.flipY = true;
+        }else if(stickman.y === 336){
+            stickman.y = 230;
+            stickman.flipY = false;
+        }
+    });
 
     // Create a timer event that fires every x seconds
 this.time.addEvent({
