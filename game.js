@@ -16,7 +16,7 @@ const game = new Phaser.Game(config);
 
 //game configs
 let speed = 1;
-let bg, clouds, bamboo, stickman, object, gameOvr, overTxt, banner; 
+let bg, clouds, bamboo, stickman, object, gameOvr, overTxt, banner, space, spaceTxt; 
 let runAnim;
 let gameState = "start";
 
@@ -45,6 +45,7 @@ function create() {
     .visible = false;
 
 
+
     //animation
      runAnim =  stickman.anims.create({
         key: 'run',
@@ -66,16 +67,18 @@ function create() {
         }
     });
     //touch support
-    this.input.on('pointerdown', function(pointer) {
-        if(gameState !== 'start') return;
-        if(stickman.y === 230){
-        stickman.y = 336;
-        stickman.flipY = true;
-        }else if(stickman.y === 336){
-            stickman.y = 230;
-            stickman.flipY = false;
-        }
-    });
+    space = this.add.rectangle(240, 400, 120, 40, 0x1633c4)
+    .setInteractive().on('pointerdown', function(){
+    if(gameState !== 'start') return;
+    if(stickman.y === 230){
+    stickman.y = 336;
+    stickman.flipY = true;
+    }else if(stickman.y === 336){
+        stickman.y = 230;
+        stickman.flipY = false;
+    }
+})
+   spaceTxt =  this.add.text( 240, 400, "SPACE",{ font:"20px Arial", fill:"#559bd9"}).setOrigin(0.5)
 
     // Create a timer event that fires every x seconds
 this.time.addEvent({
