@@ -26,7 +26,7 @@ this.load.image('clouds', 'assets/clouds.png');
 this.load.image('bamboo', 'assets/bamboo.png');
 this.load.image('car', 'assets/car.png');
 this.load.image('shark', 'assets/shark.png');
-this.load.image('gameOver', 'assets/gameOver.png');
+this.load.image('gameOver', 'assets/gameover.png');
 this.load.image('banner', 'assets/banner.png');
 this.load.spritesheet('running', 'assets/running.png', { frameWidth: 204, frameHeight: 244, endFrame: 4 });
 }
